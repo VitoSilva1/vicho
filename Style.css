@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+
+    color: rgb(245, 253, 251);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    border: 5px;
+    text-align: center;
+    padding: 25px;
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu {
+
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    background-color: #070000;
+    padding: 0 0.4rem;
+}
+
+
+.main-logo {
+    color: #daa520;
+    font-size: 32px;
+    text-decoration: none;
+    align-items: left;
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin-left: -100%;
+    transition: all 0.2s linear;
+    z-index: 100;
+    background-color: #daa520;
+}
+
+.main-nav.show {
+    margin-left: 0;
+}
+
+.nav-links {
+    background-color: rgb(16, 15, 15);
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.link-item {
+    margin-top: 2rem;
+    color: #daa520;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.button-menu {
+    z-index: 200;
+    width: 40px;
+    height: 40px;
+    border: none;
+    display: flex;
+    background: none;
+    flex-direction: column;
+    /* Pondrá un span debajo del otro*/
+    align-items: left;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 
+  Dibujamos una línea recta por cada span creando el tipico menu hamburguesa
+*/
+
+.button-menu span {
+    width: 37px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #daa520;
+    border-radius: 3px;
+    transform-origin: 4px 0px;
+    transition: all 0.2s linear;
+}
+
+/* 
+  con los span dibujamos un icono de cerrar 
+  para mostrar cuándo la navegación este abierta 
+*/
+
+.button-menu.close span {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, 0px);
+    background: #070000;
+}
+
+.button-menu.close span:nth-child(2) {
+    transform: rotate(-45deg) translate(-8px, 5px);
+}
+
+.button-menu.close span:nth-child(3) {
+    display: none;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(0, 0, 15);
+    text-align: center;
+    color: white;
+    padding: 25px;
+    box-shadow: rgba(red, green, blue, alpha);
+}
+
+footer {
+    font-style: initial;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.holographic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+    background: rgb(9, 11, 0);
+    margin-top: 50px;
+
+
+}
+
+.holographic-card {
+    width: 800px;
+    height: 200px;
+    background: #daa520;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+.holographic-card h2 {
+    color: rgb(235, 235, 242);
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.holographic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg,
+            transparent,
+            transparent 30%,
+            rgba(0, 255, 255, 0.3));
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.holographic-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.holographic-card:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
+}
